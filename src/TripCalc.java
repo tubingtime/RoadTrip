@@ -74,7 +74,9 @@ public class TripCalc {
     }
     public List<RouteNode> route (String starting_city, String ending_city, List<String> attractions){ //attractions stack!
         if (attractions.size() == 0){
-            return route(starting_city,ending_city);
+            ArrayList<RouteNode> AR = new ArrayList<>();
+            AR.add(route(starting_city,ending_city));
+            return AR;
         }
 
         ArrayList<String> cities = new ArrayList<>();
@@ -108,7 +110,7 @@ public class TripCalc {
         stringRoute.addAll(lastRoute.route);
 
         ArrayList<RouteNode> AR = new ArrayList<>();
-        AR.add(new RouteNode(stringRoute,finalCost))
+        AR.add(new RouteNode(stringRoute,finalCost));
         return AR;
     }
     private RouteNode route (String starting_city, String ending_city){
